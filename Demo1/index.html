@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+
+
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer", {
+		title:{
+			text: "Chart in CanvasJS"              
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			dataPoints: [
+				{ label: "apple",  y: 10  },
+				{ label: "orange", y: 15  },
+				{ label: "banana", y: 25  },
+				{ label: "mango",  y: 30  },
+				{ label: "grape",  y: 28  }
+			]
+		}
+		]
+	});
+	chart.render();
+
+	
+}
+</script>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<div id="chartContainer" style="height: 470px; max-width: 920px; margin: 0px auto;margin-top:100px"></div>
+<header>
+	<!-- //hamburger icon -->
+	<div class="DrawerToggle"  id="DrawerToggle">
+        <div></div>
+        <div></div>
+        <div></div>
+	</div>
+	
+	<!-- logo -->
+	
+		<div  class="Logo" >
+			<img src="./resources/images/rrlogo.jpg" alt="logo"/>
+		</div>
+	
+		<!-- Navigation -->
+		<nav class="DesktopOnly">
+			<ul class="NavigationItems">
+				<li class="NavigationItem"><a href="#">Home</a></li>
+				<li class="NavigationItem"><a href="#">Settings</a></li>
+			</ul>
+
+		</nav>
+
+
+</header>
+
+
+<div class="SideDrawer Close" id="SideDrawer">
+		<div  class="Logo" >
+				<img src="./resources/images/rrlogo.jpg" alt="logo"/>
+		</div>
+
+		<nav class="DesktopOnly" >
+				<ul class="NavigationItems" style="flex-flow:column;">
+					<li class="NavigationItem" style="background-color: #eee;width: 100%;border-bottom: 1px solid black;"><a href="#" style="color:black;">Home</a></li>
+					<li class="NavigationItem" style="background-color: #eee;width: 100%;border-bottom: 1px solid black;"><a href="#" style="color:black;">Settings</a></li>
+				</ul>
+	
+		</nav>
+</div>
+
+<div  onClick="backdropClicked()" id="Backdrop"></div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+	function f1()
+        {
+           alert("f1 called");
+		}
+
+	function backdropClicked(){
+		$('#SideDrawer').addClass('Close');
+		$('#Backdrop').removeClass('Backdrop');
+	}
+
+
+
+		$(document).ready(function() {
+
+		/* Colour Switching Function */
+			$('#DrawerToggle').click(function() {
+				// alert($('#SideDrawer').hasClass('Close'))
+				if($('#SideDrawer').hasClass('Open')) {
+					$('#SideDrawer').addClass('Close');
+					$('#Backdrop').removeClass('Backdrop');
+					$('#SideDrawer').removeClass('Open');
+				} else if($('#SideDrawer').hasClass('Close')) {
+					$('#SideDrawer').addClass('Open');
+					$('#Backdrop').addClass('Backdrop');
+					$('#SideDrawer').removeClass('Close');
+				}
+			});
+		});
+
+
+</script>
+</body>
+</html>
